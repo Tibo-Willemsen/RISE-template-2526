@@ -1,0 +1,17 @@
+node {
+    stage('Preparation') {
+        catchError(buildResult: 'SUCCESS') {
+            sh 'docker stop samplerunning'
+            sh 'docker rm samplerunning'
+        }
+    }
+    stage('Change Database') {
+        build 'changeDatabase'
+    }
+    stage('Build') {
+        build '.NETAppBuild'
+    }
+    stage('Results') {
+        build 'test.NETApplicationServer'
+    }
+}
