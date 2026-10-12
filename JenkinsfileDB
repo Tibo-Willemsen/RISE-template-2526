@@ -8,7 +8,7 @@ node {
     stage('Change Database') {
         build 'changeDatabase'
     }
-    tage('DBChangeResults') {
+    stage('DBChangeResults') {
         build 'verifyDBChange'
     }
     stage('Build') {
