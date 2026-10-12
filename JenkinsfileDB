@@ -8,6 +8,9 @@ node {
     stage('Change Database') {
         build 'changeDatabase'
     }
+    tage('DBChangeResults') {
+        build 'verifyDBChange'
+    }
     stage('Build') {
         build '.NETAppBuild'
     }
